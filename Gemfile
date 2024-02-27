@@ -2,14 +2,8 @@
 
 source "https://rubygems.org"
 
-# Jekyll theme
 gem "jekyll-theme-chirpy", "~> 6.5"
 
-# Add missing gems to avoid warnings with Ruby 3.4.0
-gem 'csv'
-gem 'bigdecimal'
-
-# For HTML validation
 group :test do
   gem "html-proofer", "~> 4.4"
 end
