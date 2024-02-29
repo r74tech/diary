@@ -39,14 +39,11 @@ slug: 2024-02-29-sample
 tags:
   - sample
   - test
-
 ---
 ```
 slugは記事のURLになる他、OG画像のファイル名にもなる。また、tagsはOG画像の説明に使う。
 
 以下のスクリプトは、_postsディレクトリにあるファイルを読み込み、frontmatterを元にOG画像を生成する。
-<details>
-<summary>generate-og.js</summary>
 
 ```js
 import { readdir, readFile, writeFile } from "fs/promises";
@@ -187,7 +184,6 @@ async function generateOgImage({ title, slug, description }) {
 }
 
 ```
-</details>
 
 ![生成画像](https://blog.r74.tech/assets/img/post/2024-02-29/2024-02-29-generate-og.png)
 
@@ -195,26 +191,7 @@ async function generateOgImage({ title, slug, description }) {
 ## Jekyll側の対応
 このブログのテーマ側で、`jekyll-seo-tag`が使われているため、frontmatterに`image`を追加することでOG画像を指定できる。ただし、画像を追加すると記事の初めに画像が表示されるため、`_layouts/post.html`を修正する必要がある。
 
-```diff
-{% if page.image %}
-+ {% if page.image.show %}
-    {% capture src %}src="{{ page.image.path | default: page.image }}"{% endcapture %}
-    {% capture class %}class="preview-img{% if page.image.no_bg %}{{ ' no-bg' }}{% endif %}"{% endcapture %}
-    {% capture alt %}alt="{{ page.image.alt | xml_escape | default: "Preview Image" }}"{% endcapture %}
-
-    {% if page.image.lqip %}
-      {%- capture lqip -%}lqip="{{ page.image.lqip }}"{%- endcapture -%}
-    {% endif %}
-
-    <div class="mt-3 mb-3">
-      <img {{ src }} {{ class }} {{ alt }} w="1200" h="630" {{ lqip }}>
-      {%- if page.image.alt -%}
-        <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
-      {%- endif -%}
-    </div>
-+ {% endif %}
-{% endif %}
-```
+[該当コード](https://github.com/r74tech/diary/blob/main/_layouts/post.html#L33-L49)
 
 このブログでは、`show`を追加してOG画像を表示するかどうかを指定できるようにした。
 
