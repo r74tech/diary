@@ -41,9 +41,9 @@ tags:
 ---
 ```
 
-slug は記事の URL になる他、OG 画像のファイル名にもなる。また、tags は OG 画像の説明に使う。
+`slug` は記事の URL になる他、OG 画像のファイル名にもなる。また、`tags` は OG 画像の説明に使う。
 
-以下のスクリプトは、\_posts ディレクトリにあるファイルを読み込み、frontmatter を元に OG 画像を生成する。
+以下のスクリプトは、`\_posts` ディレクトリにあるファイルを読み込み、frontmatter を元に OG 画像を生成する。
 
 ```js
 import { readdir, readFile, writeFile } from "fs/promises";
