@@ -14,13 +14,12 @@ image:
   show: false
 ---
 
-## 動的にOG画像を生成する
+Twitter で見かける、技術系記事を自サイトでホストしている人達は華やかな OG 画像を載せている。実際、リンクを共有したときに表示されるのであれば記事の内容が一目でわかる。
 
-Twitterでよく技術系記事を自サイトでホストしている人達は華やかなOG画像を載せているように思える。実際、リンクを共有したときに表示されるのであれば記事の内容が一目でわかりとても良いと思われる。
-
-このサイトはJekyllで生成されるため、Github Actions+RubyでOG画像を生成するとデプロイに時間がかかる。そこで、[`satori`](https://www.npmjs.com/package/satori)と[`@resvg/resvg-js`](https://github.com/yisibl/resvg-js)を用いてOG画像を生成する方法を考えた。
+このサイトは Jekyll で生成しており、Github Actions+Ruby で OG 画像を生成するとデプロイに非常に時間がかかるため、[`satori`](https://www.npmjs.com/package/satori)と[`@resvg/resvg-js`](https://github.com/yisibl/resvg-js)を用いて OG 画像を生成する方法を考えた。
 
 ## 環境
+
 ```
 @resvg/resvg-js 2.6.0
 gray-matter 4.0.3
@@ -30,7 +29,7 @@ satori-html 0.3.2
 
 ## 実装
 
-markdownファイルは以下のように、frontmatterを事前に設定しておく。
+markdown ファイルは以下のように、frontmatter を事前に設定しておく。
 
 ```md
 ---
@@ -41,9 +40,10 @@ tags:
   - test
 ---
 ```
-slugは記事のURLになる他、OG画像のファイル名にもなる。また、tagsはOG画像の説明に使う。
 
-以下のスクリプトは、_postsディレクトリにあるファイルを読み込み、frontmatterを元にOG画像を生成する。
+slug は記事の URL になる他、OG 画像のファイル名にもなる。また、tags は OG 画像の説明に使う。
+
+以下のスクリプトは、\_posts ディレクトリにあるファイルを読み込み、frontmatter を元に OG 画像を生成する。
 
 ```js
 import { readdir, readFile, writeFile } from "fs/promises";
@@ -69,11 +69,9 @@ try {
   console.error("Error:", err);
 }
 
-
 async function generateOgImage({ title, slug, description }) {
   const svg = await satori(
-    html`
-      <style>
+    html` <style>
         div {
           display: flex;
         }
@@ -123,10 +121,10 @@ async function generateOgImage({ title, slug, description }) {
 
         .description {
           margin-top: 16px;
-          color: #f9f4da;
           font-family: "Outfit";
           font-size: 40px;
           font-weight: 400;
+          color: #f9f4da;
         }
       </style>
       <div class="wrapper">
@@ -159,11 +157,14 @@ async function generateOgImage({ title, slug, description }) {
         {
           name: "Zen Kaku Gothic New",
           data: await readFile(
-            new URL("./assets/fonts/ZenKakuGothicNew-Regular.ttf", import.meta.url)
+            new URL(
+              "./assets/fonts/ZenKakuGothicNew-Regular.ttf",
+              import.meta.url
+            )
           ),
           weight: "400",
           style: "normal",
-        }
+        },
       ],
       width: 1200,
       height: 630,
@@ -182,20 +183,18 @@ async function generateOgImage({ title, slug, description }) {
     pngBuffer
   );
 }
-
 ```
 
 ![生成画像](https://blog.r74.tech/assets/img/post/2024-02-29/2024-02-29-generate-og.png)
 
+## Jekyll 側の対応
 
-## Jekyll側の対応
-このブログのテーマ側で、`jekyll-seo-tag`が使われているため、frontmatterに`image`を追加することでOG画像を指定できる。ただし、画像を追加すると記事の初めに画像が表示されるため、`_layouts/post.html`を修正する必要がある。
+このブログのテーマ側で、`jekyll-seo-tag`が使われているため、frontmatter に`image`を追加することで OG 画像を指定できる。ただし、画像を追加すると記事の初めに画像が表示されるため、`_layouts/post.html`を修正する必要がある。
 
 [該当コード](https://github.com/r74tech/diary/blob/main/_layouts/post.html#L33-L49)
 
-このブログでは、`show`を追加してOG画像を表示するかどうかを指定できるようにした。
-
+このブログでは、`show`を追加して OG 画像を表示するかどうかを指定できるようにした。
 
 ## 参考文献
 
-- [HonoXでsatoriを使ってOGイメージもSSGする](https://blog.berlysia.net/entry/2024-02-29-honox-og-image)
+- [HonoX で satori を使って OG イメージも SSG する](https://blog.berlysia.net/entry/2024-02-29-honox-og-image)
