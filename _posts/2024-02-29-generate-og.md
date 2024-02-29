@@ -18,7 +18,7 @@ image:
 
 Twitterでよく技術系記事を自サイトでホストしている人達は華やかなOG画像を載せているように思える。実際、リンクを共有したときに表示されるのであれば記事の内容が一目でわかりとても良いと思われる。
 
-このサイトはJekyllで生成されるため、記事の内容を元にOG画像を生成すると処理が重くなる。そこで、記事のタイトルなどfrontmatterを元にOG画像を生成する方法を考えた。
+このサイトはJekyllで生成されるため、Github Actions+RubyでOG画像を生成するとデプロイに時間がかかる。そこで、[`satori`](https://www.npmjs.com/package/satori)と[`@resvg/resvg-js`](https://github.com/yisibl/resvg-js)を用いてOG画像を生成する方法を考えた。
 
 ## 環境
 ```
