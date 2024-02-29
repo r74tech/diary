@@ -38,7 +38,7 @@ tail_includes:
 
       {% if page.image.lqip %}
       {%- capture lqip -%}lqip="{{ page.image.lqip }}"{%- endcapture -%}
-      {% endif %}{% endif %}
+      {% endif %}
 
       <div class="mt-3 mb-3">
         <img {{ src }} {{ class }} {{ alt }} w="1200" h="630" {{ lqip }}>
@@ -46,7 +46,7 @@ tail_includes:
         <figcaption class="text-center pt-2 pb-2">{{ page.image.alt }}</figcaption>
         {%- endif -%}
       </div>
-      {% endif %}
+      {% endif %}{% endif %}
 
       <div class="d-flex justify-content-between">
         <!-- author(s) -->
