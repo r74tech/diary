@@ -35,6 +35,13 @@ help() {
   echo "     -h, --help               Print this information."
 }
 
+genOgImage() {
+  node fixfrontmatter.js
+  node ogGen.js
+}
+
+
+
 init() {
   if [[ -z ${GITHUB_ACTION+x} && $_opt_dry_run == 'false' ]]; then
     echo "ERROR: It is not allowed to deploy outside of the GitHub Action envrionment."
@@ -117,6 +124,7 @@ deploy() {
 }
 
 main() {
+  genOgImage
   init
   build
   # test
