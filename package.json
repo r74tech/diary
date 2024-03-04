@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@resvg/resvg-js": "^2.6.0",
+    "budoux": "^0.6.2",
     "gray-matter": "^4.0.3",
     "satori": "^0.10.13",
     "satori-html": "^0.3.2"

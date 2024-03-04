@@ -4,8 +4,11 @@ import matter from "gray-matter";
 import { Resvg } from "@resvg/resvg-js";
 import { html } from "satori-html";
 import satori from "satori";
+import { loadDefaultJapaneseParser } from "budoux";
 
 const dir = "./_posts";
+const parser = loadDefaultJapaneseParser();
+
 try {
   const files = await readdir(dir);
   for (const file of files) {
@@ -22,72 +25,108 @@ try {
 }
 
 async function generateOgImage({ title, slug, description }) {
+  const wakachi = parser.parse(title);
   const svg = await satori(
-    html` <style>
-        div {
-          display: flex;
-        }
-
-        .wrapper {
-          display: flex;
-          flex-direction: column;
-          background-color: #0f0d0e;
-          height: 630px;
-          padding: 80px;
-        }
-
-        .top {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        }
-
-        .bottom {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-end;
-          flex-basis: 100%;
-          width: 90%;
-          padding-bottom: 40px;
-        }
-
-        .install {
-          font-size: 32px;
-          font-family: "Fira Code";
-          color: #f9f4da;
-        }
-
-        .install span {
-          color: #0ba95b;
-          padding-right: 16px;
-        }
-
-        .title {
-          margin-top: 16px;
-          font-size: 64px;
-          font-family: "Zen Kaku Gothic New";
-          font-weight: 400;
-          color: #12b5e5;
-          word-break: auto-phrase;
-        }
-
-        .description {
-          margin-top: 16px;
-          color: #f9f4da;
-          font-family: "Outfit";
-          font-size: 40px;
-          font-weight: 400;
-        }
-      </style>
-      <div class="wrapper">
-        <div class="top">
-          <div class="install"><span>></span> pnpm i @r74tech/blog</div>
-        </div>
-        <div class="bottom">
-          <div class="title">${title}</div>
-          <div class="description">${description}</div>
-        </div>
-      </div>`,
+    {
+      type: "div",
+      props: {
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          backgroundColor: "#0f0d0e",
+          width: "1200px",
+          height: "630px",
+          padding: "80px",
+        },
+        className: "wrapper",
+        children: [
+          {
+            type: "div",
+            props: {
+              style: {
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              },
+              className: "top",
+              children: [
+                {
+                  type: "div",
+                  props: {
+                    style: {
+                      display: "flex",
+                      fontSize: "32px",
+                      fontFamily: "Fira Code",
+                      color: "#f9f4da",
+                    },
+                    children: [
+                      {
+                        type: "span",
+                        props: {
+                          style: {
+                            color: "#0ba95b",
+                            paddingRight: "16px",
+                          },
+                          children: [">"],
+                        },
+                      },
+                      "pnpm i @r74tech/blog",
+                    ],
+                  },
+                },
+              ],
+            },
+          },
+          {
+            type: "div",
+            props: {
+              style: {
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "flex-end",
+                flexBasis: "100%",
+                width: "90%",
+                paddingBottom: "40px",
+              },
+              className: "bottom",
+              children: [
+                {
+                  type: "div",
+                  props: {
+                    style: {
+                      display: "flex",
+                      marginTop: "16px",
+                      fontSize: "64px",
+                      fontFamily: "Zen Kaku Gothic New",
+                      fontWeight: "400",
+                      color: "#12b5e5",
+                      wordBreak: "auto-phrase",
+                    },
+                    className: "title",
+                    children: [wakachi]
+                  },
+                },
+                {
+                  type: "div",
+                  props: {
+                    style: {
+                      display: "flex",
+                      marginTop: "16px",
+                      color: "#f9f4da",
+                      fontFamily: "Outfit",
+                      fontSize: "40px",
+                      fontWeight: "400",
+                    },
+                    className: "description",
+                    children: [description],
+                  },
+                },
+              ],
+            },
+          }
+        ]
+      }
+    },
     {
       fonts: [
         {
