@@ -30,7 +30,7 @@ tagline: "r74's tech blog"        # it will display as the sub-title
 #   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: 'https://blog.r74.tech'
+url: 'https://blog.r74tech.com'
 
 github:
   username: r74tech             # change to your github username
