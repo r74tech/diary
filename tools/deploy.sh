@@ -131,34 +131,29 @@ deploy_to_another_repo() {
   ANOTHER_REPO_URL="https://github.com/r74tech/blog.r74.tech.git"
   ANOTHER_PAGES_BRANCH="gh-pages"
 
-  # Clone the target repository to a temporary directory
-
-  # now directory
-  echo "pwd: $(pwd)"
-  ls -la
-
-
+  # Temporary directory for the cloned repository
   TEMP_REPO_DIR="$(mktemp -d)"
-  git clone $ANOTHER_REPO_URL $TEMP_REPO_DIR
+  echo "Cloning into '$TEMP_REPO_DIR'..."
+
+  # Clone the diary gh-pages branch to a temporary directory
+  git clone --branch $PAGES_BRANCH --single-branch https://github.com/r74tech/diary.git $TEMP_REPO_DIR
+
   cd $TEMP_REPO_DIR
 
-  # Checkout the target branch or create it if it doesn't exist
-  if [[ -z $(git branch -av | grep "$ANOTHER_PAGES_BRANCH") ]]; then
-    git checkout -b "$ANOTHER_PAGES_BRANCH"
-  else
-    git checkout "$ANOTHER_PAGES_BRANCH"
-  fi
+  # Remove the current .git to re-initialize for the new repository
+  rm -rf .git
 
-  # Copy the built site contents to the temporary repository directory
-  rm -rf *
+  # Initialize a new git repository and set up for the r74tech/blog.r74.tech repository
+  git init
+  git remote add origin $ANOTHER_REPO_URL
 
-  # 親ディレクトリの中身をコピー
-  cp -r ../$SITE_DIR/* .
+  # Checkout the gh-pages branch or create it if it doesn't exist
+  git checkout -b $ANOTHER_PAGES_BRANCH
 
-  # Commit and push the changes to the second repository
-  git add -A
+  # Add, commit, and force push the changes to the r74tech/blog.r74.tech repository
+  git add .
   git commit -m "[Automation] Site update No.${GITHUB_RUN_NUMBER} for r74tech/blog.r74.tech"
-  git push -u origin "$ANOTHER_PAGES_BRANCH" || git push -f
+  git push -f origin $ANOTHER_PAGES_BRANCH
 
   # Clean up
   cd ..
@@ -166,6 +161,7 @@ deploy_to_another_repo() {
 
   echo "Deployment to r74tech/blog.r74.tech completed"
 }
+
 
 
 
