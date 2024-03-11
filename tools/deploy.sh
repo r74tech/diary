@@ -135,7 +135,7 @@ deploy_to_another_repo() {
 
   # now directory
   echo "pwd: $(pwd)"
-
+  ls -la
 
 
   TEMP_REPO_DIR="$(mktemp -d)"
@@ -153,7 +153,7 @@ deploy_to_another_repo() {
   rm -rf *
 
   # 親ディレクトリの中身をコピー
-  cp -r ../* .
+  cp -r ../$SITE_DIR/* .
 
   # Commit and push the changes to the second repository
   git add -A
