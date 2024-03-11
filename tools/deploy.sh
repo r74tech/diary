@@ -123,6 +123,43 @@ deploy() {
   fi
 }
 
+deploy_to_another_repo() {
+  echo "Deploying to the r74tech/blog.r74.tech repository"
+
+  # Specify the second repository and branch
+  ANOTHER_REPO_URL="git@github.com:r74tech/blog.r74.tech.git"
+  ANOTHER_PAGES_BRANCH="gh-pages"
+
+  # Clone the target repository to a temporary directory
+  TEMP_REPO_DIR="$(mktemp -d)"
+  git clone $ANOTHER_REPO_URL $TEMP_REPO_DIR
+  cd $TEMP_REPO_DIR
+
+  # Checkout the target branch or create it if it doesn't exist
+  if [[ -z $(git branch -av | grep "$ANOTHER_PAGES_BRANCH") ]]; then
+    git checkout -b "$ANOTHER_PAGES_BRANCH"
+  else
+    git checkout "$ANOTHER_PAGES_BRANCH"
+  fi
+
+  # Copy the built site contents to the temporary repository directory
+  rm -rf *
+  cp -r $_backup_dir/* .
+
+  # Commit and push the changes to the second repository
+  git add -A
+  git commit -m "[Automation] Site update No.${GITHUB_RUN_NUMBER} for r74tech/blog.r74.tech"
+  git push -u origin "$ANOTHER_PAGES_BRANCH" || git push -f
+
+  # Clean up
+  cd ..
+  rm -rf $TEMP_REPO_DIR
+
+  echo "Deployment to r74tech/blog.r74.tech completed"
+}
+
+
+
 main() {
   genOgImage
   init
@@ -138,6 +175,7 @@ main() {
   backup
   flush
   deploy
+  deploy_to_another_repo
 }
 
 while (($#)); do
