@@ -191,7 +191,7 @@ async function generateOgImage({ title, slug, description }) {
 
 このブログのテーマ側で、`jekyll-seo-tag`が使われているため、frontmatter に`image`を追加することで OG 画像を指定できる。ただし、画像を追加すると記事の初めに画像が表示されるため、`_layouts/post.html`を修正する必要がある。
 
-[該当コード](https://github.com/r74tech/diary/blob/main/_layouts/post.html#L33-L49)
+[該当コード](https://github.com/r74tech/diary/blob/276cbc75d503111e790e4fda6703b291a8ae874e/_layouts/post.html#L33-L49)
 
 このブログでは、`show`を追加して OG 画像を表示するかどうかを指定できるようにした。
 
