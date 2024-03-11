@@ -150,6 +150,9 @@ deploy_to_another_repo() {
   # Checkout the gh-pages branch or create it if it doesn't exist
   git checkout -b $ANOTHER_PAGES_BRANCH
 
+  # Change CNAME to blog.r74.tech
+  echo "blog.r74.tech" >CNAME
+
   # Add, commit, and force push the changes to the r74tech/blog.r74.tech repository
   git add .
   git commit -m "[Automation] Site update No.${GITHUB_RUN_NUMBER} for r74tech/blog.r74.tech"
