@@ -127,7 +127,7 @@ deploy_to_another_repo() {
   echo "Deploying to the r74tech/blog.r74.tech repository"
 
   # Specify the second repository and branch
-  ANOTHER_REPO_URL="git@github.com:r74tech/blog.r74.tech.git"
+  ANOTHER_REPO_URL="https://github.com/r74tech/blog.r74.tech.git"
   ANOTHER_PAGES_BRANCH="gh-pages"
 
   # Clone the target repository to a temporary directory
