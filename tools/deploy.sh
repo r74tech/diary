@@ -144,6 +144,7 @@ deploy_to_another_repo() {
 
   # Copy the built site contents to the temporary repository directory
   rm -rf *
+  echo "$_backup_dir"
   cp -r $_backup_dir/* .
 
   # Commit and push the changes to the second repository
