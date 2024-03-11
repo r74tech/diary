@@ -105,7 +105,7 @@ flush() {
 
   shopt -s dotglob nullglob
   echo "$_backup_dir"
-  cp "$_backup_dir"/* .
+  mv "$_backup_dir"/* .
   [[ -f ".nojekyll" ]] || echo "" >".nojekyll"
 }
 
@@ -146,6 +146,7 @@ deploy_to_another_repo() {
   # Copy the built site contents to the temporary repository directory
   rm -rf *
   echo "$_backup_dir"
+  ls -al "$_backup_dir"
   cp -r $_backup_dir/* .
 
   # Commit and push the changes to the second repository
