@@ -39,4 +39,6 @@ jobs:
         run: yarn install
 
       - name: Deploy
+        env:
+          ANOTHER_REPO_TOKEN: ${{ secrets.ANOTHER_REPO_TOKEN }}
         run: bash tools/deploy.sh
