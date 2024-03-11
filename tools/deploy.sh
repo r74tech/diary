@@ -132,6 +132,12 @@ deploy_to_another_repo() {
   ANOTHER_PAGES_BRANCH="gh-pages"
 
   # Clone the target repository to a temporary directory
+
+  # now directory
+  echo "pwd: $(pwd)"
+
+
+
   TEMP_REPO_DIR="$(mktemp -d)"
   git clone $ANOTHER_REPO_URL $TEMP_REPO_DIR
   cd $TEMP_REPO_DIR
@@ -145,9 +151,9 @@ deploy_to_another_repo() {
 
   # Copy the built site contents to the temporary repository directory
   rm -rf *
-  echo "$_backup_dir"
-  ls -al "$_backup_dir"
-  cp -r $_backup_dir/* .
+
+  # 親ディレクトリの中身をコピー
+  cp -r ../* .
 
   # Commit and push the changes to the second repository
   git add -A
