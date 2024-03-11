@@ -104,7 +104,8 @@ flush() {
   rm -rf .[^.] .??*
 
   shopt -s dotglob nullglob
-  mv "$_backup_dir"/* .
+  echo "$_backup_dir"
+  cp "$_backup_dir"/* .
   [[ -f ".nojekyll" ]] || echo "" >".nojekyll"
 }
 
