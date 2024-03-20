@@ -1,5 +1,5 @@
 ---
-title: '[wip] Shibboleth認証をNginxとDjangoで実装する'
+title: 'Shibboleth認証をNginxとDjangoで実装する'
 author: r74tech
 categories:
   - web
