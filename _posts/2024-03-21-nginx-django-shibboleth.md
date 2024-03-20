@@ -7,11 +7,11 @@ tags:
   - shibboleth
   - django
   - wip
-
 math: false
 mermaid: false
 slug: 2024-03-21-nginx-django-shibboleth
 image:
-  path: ./assets/img/og/2024-02-29-generate-og.png
+  path: ./assets/img/og/2024-03-21-nginx-django-shibboleth.png
   show: false
 ---
+
