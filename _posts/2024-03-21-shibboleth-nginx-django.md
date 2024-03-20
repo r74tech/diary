@@ -1,11 +1,11 @@
 ---
-title: 'Shibboleth認証をNginxとDjangoで実装する'
+title: 'NginxとDjangoでShibboleth認証を実装する'
 author: r74tech
 categories:
   - web
 tags:
-  - shibboleth
   - django
+  - shibboleth
   - wip
 math: false
 mermaid: false

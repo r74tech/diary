@@ -2,7 +2,6 @@ import { readdir, readFile, writeFile } from "fs/promises";
 import { join } from "path";
 import matter from "gray-matter";
 import { Resvg } from "@resvg/resvg-js";
-import { html } from "satori-html";
 import satori from "satori";
 import { loadDefaultJapaneseParser } from "budoux";
 

@@ -4,8 +4,8 @@ author: r74tech
 categories:
   - tryhackme
 tags:
-  - thm
   - ad
+  - thm
   - wip
 math: false
 mermaid: false
