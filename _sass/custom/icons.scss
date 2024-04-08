@@ -1,0 +1,11 @@
+//
+// Font Awesome hatena bookmark
+//
+.fa-hatena {
+
+	&:before {
+		content: "B!";
+		font-family: "Arimo", sans-serif;
+		font-weight: bold;
+	}
+}
