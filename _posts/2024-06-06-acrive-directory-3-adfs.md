@@ -17,9 +17,9 @@ image:
 ## AD FS構築
 
 ### 0. AD FSの準備
-1. AD FS用のアカウントと、AD FS用のサービスアカウントを作成する
+AD FS用のアカウントと、AD FS用のサービスアカウントを作成する
 
-2. AD DS, AD CSの時と同じように、AD FS用のユーザーを作成する  
+1. AD DS, AD CSの時と同じように、AD FS用のユーザーを作成する  
 ここでは、`adfs`というユーザーを作成する  
 ![image](/assets/img/post/2024-06-06/adfs00/001.png)
 ![image](/assets/img/post/2024-06-06/adfs00/002.png)
