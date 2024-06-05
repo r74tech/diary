@@ -91,7 +91,7 @@ Set-DnsClientServerAddress -InterfaceIndex 4 -ServerAddresses 192.168.10.100
 1. 「OK」をクリックする
 ![image](/assets/img/post/2024-06-05/adcs00/018.png)
 
-1. 「他のユーザーでログイン」をクリックし、サインイン先が[NetBIOS ドメイン名](#NetBIOS)になっていることを確認し、ログインする
+1. 「他のユーザーでログイン」をクリックし、サインイン先が[NetBIOS ドメイン名](/posts/2024-06-05-active-directory-1-adds/#NetBIOS)になっていることを確認し、ログインする
 ![image](/assets/img/post/2024-06-05/adcs00/019.png)
 
 
