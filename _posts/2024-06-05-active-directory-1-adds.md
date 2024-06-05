@@ -35,7 +35,7 @@ Get-NetIPAddress | New-NetIPAddress -InterfaceIndex 4 -AddressFamily IPv4 -IPAdd
 `Get-NetAdapter`: ネットワークアダプタの一覧を表示する
 ```powershell
 Get-NetAdapter
-
+​
 Name                      InterfaceDescription                    ifIndex Status       MacAddress             LinkSpeed
 ----                      --------------------                    ------- ------       ----------             ---------
 Ethernet0                 Intel(R) 82574L Gigabit Network Conn...       4 Up           00-0C-29-3D-5E-1.        1 Gbps
