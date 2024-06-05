@@ -130,43 +130,44 @@ Set-DnsClientServerAddress -InterfaceIndex 4 -ServerAddresses 192.168.10.100
 1. インストールが完了すると「構成が必要です。`HOST`でインストールが正常に完了しました」と表示されるので、「閉じる」をクリックする
 ![image](/assets/img/post/2024-06-05/adcs01/011.png)
 
+### 2. 証明書サービスの構成
 1. サーバーマネージャーの「通知」に展開後構成タスクが表示されるので、「対象サーバーにActive Directory 証明書サービスを構成する」をクリックする
-![image](/assets/img/post/2024-06-05/adcs01/012.png)
+![image](/assets/img/post/2024-06-05/adcs02/012.png)
 
 1. 「資格情報」で`<NetBIOS ドメイン名>\adcs`を入力し、「次へ」をクリックする
-![image](/assets/img/post/2024-06-05/adcs01/013.png)
+![image](/assets/img/post/2024-06-05/adcs02/013.png)
 
 1. 「役割サービスの選択」で「証明機関」を選択し、「次へ」をクリックする
-![image](/assets/img/post/2024-06-05/adcs01/014.png)
+![image](/assets/img/post/2024-06-05/adcs02/014.png)
 
 1. 「CAのセットアップ」で「エンタープライズCA」を選択し、「次へ」をクリックする
-![image](/assets/img/post/2024-06-05/adcs01/015.png)
+![image](/assets/img/post/2024-06-05/adcs02/015.png)
 
 1. 「CAの種類」で「ルートCA」を選択し、「次へ」をクリックする
-![image](/assets/img/post/2024-06-05/adcs01/016.png)
+![image](/assets/img/post/2024-06-05/adcs02/016.png)
 
 1. 「秘密キー」で「新しい秘密キーを作成する」を選択し、「次へ」をクリックする
-![image](/assets/img/post/2024-06-05/adcs01/017.png)
+![image](/assets/img/post/2024-06-05/adcs02/017.png)
 
 1. 「暗号化」では「SHA256」を選択し、「次へ」をクリックする  
 基本的には暗号化プロバイダーはデフォルトの`RSA#Microsoft Software Key Storage Provider`から変更する必要はない  
 キーの長さは2048ビット以上を推奨し、ハッシュアルゴリズムはMD5などの脆弱なアルゴリズムは使用しない方が良い  
-![image](/assets/img/post/2024-06-05/adcs01/018.png)
+![image](/assets/img/post/2024-06-05/adcs02/018.png)
 
 1. 「CAの名前」では基本的にはデフォルトのままで問題ないが、必要に応じて変更する<span id="CAName"></span>  
-![image](/assets/img/post/2024-06-05/adcs01/019.png)
+![image](/assets/img/post/2024-06-05/adcs02/019.png)
 
 1. 「CAの証明書の有効期間」では「5年」を選択し、「次へ」をクリックする
-![image](/assets/img/post/2024-06-05/adcs01/020.png)
+![image](/assets/img/post/2024-06-05/adcs02/020.png)
 
 1. 「データベースの場所」ではデフォルトのままで問題ないが、必要に応じて変更する
-![image](/assets/img/post/2024-06-05/adcs01/021.png)
+![image](/assets/img/post/2024-06-05/adcs02/021.png)
 
 1. 「概要」で設定内容を確認し、「構成」をクリックする
-![image](/assets/img/post/2024-06-05/adcs01/022.png)
+![image](/assets/img/post/2024-06-05/adcs02/022.png)
 
 1. 「構成が完了しました」が表示されるので、「閉じる」をクリックする
-![image](/assets/img/post/2024-06-05/adcs01/023.png)
+![image](/assets/img/post/2024-06-05/adcs02/023.png)
 
 
 

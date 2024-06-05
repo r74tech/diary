@@ -61,8 +61,25 @@ image:
 1. 「要求処理」タブで、「秘密キーのエクスポートを許可する」にチェックをいれる
 ![image](/assets/img/post/2024-06-06/adfs01/006.png)
 
-1. 「セキュリティ」タブで、「追加」をクリックし、
+1. 「セキュリティ」タブで、「追加」をクリックし、**「コンピューター」**に対して「登録」権限を付与する  
+この時、AD FSサービスアカウントは「コンピューター」に含まれないが、使用を許可するためにはこの権限が必要である<sup>要検証</sup>  
+「適用」をクリックし、テンプレートを保存する
 ![image](/assets/img/post/2024-06-06/adfs01/007.png)
 ![image](/assets/img/post/2024-06-06/adfs01/010.png)
 ![image](/assets/img/post/2024-06-06/adfs01/011.png)
 ![image](/assets/img/post/2024-06-06/adfs01/013.png)
+
+1. 「証明書テンプレート」を右クリックし、「新規作成」> 「発行する証明書テンプレート」をクリックする  
+![image](/assets/img/post/2024-06-06/adfs01/014.png)
+
+1. 先ほど作成したテンプレートを選択し、「OK」をクリックする  
+![image](/assets/img/post/2024-06-06/adfs01/015.png)
+
+1. 
+![image](/assets/img/post/2024-06-06/adfs01/016.png)
+![image](/assets/img/post/2024-06-06/adfs01/017.png)
+![image](/assets/img/post/2024-06-06/adfs01/018.png)
+![image](/assets/img/post/2024-06-06/adfs01/019.png)
+![image](/assets/img/post/2024-06-06/adfs01/020.png)
+
+
