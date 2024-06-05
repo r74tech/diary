@@ -13,16 +13,6 @@ image:
   show: false
 ---
 
-書きたいこと
-* ADの概要
-  * ADDS, ADCSの概要
-* Golden SAMLの概要
-  * Silver SAML, Diamond SAMLとの違い
-* ADDS, ADCSの構築方法
-  * ADDS: ADDS, DNS
-  * ADCS: ADCS
-
-
 ## ADDS構築
 ### 0. 事前準備
 
