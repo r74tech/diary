@@ -1,5 +1,5 @@
 ---
-title: 'NginxとDjangoでShibboleth認証を実装する'
+title: NginxとDjangoでShibboleth認証を実装する
 author: r74tech
 categories:
   - web
@@ -11,7 +11,7 @@ math: false
 mermaid: false
 slug: 2024-03-21-shibboleth-nginx-django
 image:
-  path: ./assets/img/og/2024-03-21-shibboleth-nginx-django.png
+  path: /assets/img/og/2024-03-21-shibboleth-nginx-django.png
   show: false
 ---
 

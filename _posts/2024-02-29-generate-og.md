@@ -10,7 +10,7 @@ math: false
 mermaid: false
 slug: 2024-02-29-generate-og
 image:
-  path: ./assets/img/og/2024-02-29-generate-og.png
+  path: /assets/img/og/2024-02-29-generate-og.png
   show: false
 ---
 

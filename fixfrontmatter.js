@@ -12,11 +12,11 @@ async function updateFrontMatter() {
         const filePath = path.join(postsDir, file);
         const content = await fs.readFile(filePath, 'utf8');
         const { data: frontMatter, content: markdownContent } = matter(content);
-
+        const timestamp = Date.now();
         const slug = path.basename(file, '.md'); // ファイル名から拡張子を除いてslugを生成
         frontMatter.slug = frontMatter.slug || slug;
-        frontMatter.image = frontMatter.image || {
-          path: `./assets/img/og/${slug}.png`,
+        frontMatter.image = {
+          path: `/assets/img/og/${slug}.png?r=${timestamp}`,
           show: false,
         };
 

@@ -11,7 +11,7 @@ math: false
 mermaid: false
 slug: 2024-03-06-breachingad
 image:
-  path: ./assets/img/og/2024-03-06-breachingad.png
+  path: /assets/img/og/2024-03-06-breachingad.png
   show: false
 ---
 ## 邦訳: Active Directoryへの侵入
