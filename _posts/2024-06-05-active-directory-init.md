@@ -1,10 +1,11 @@
 ---
-title: Golden SAMLを利用したAzure ADへの初期アクセス (ADDS, ADCS構築編)
+title: Golden SAMLを利用した Entra AD への初期アクセス (ADDS, ADCS構築編)
 author: r74tech
 categories:
   - wip
 tags:
   - wip
+  - Active Directory
 math: false
 mermaid: false
 slug: 2024-06-05-active-directory-init
@@ -85,7 +86,7 @@ Ethernet0                 Intel(R) 82574L Gigabit Network Conn...       4 Up    
 ![image](/assets/img/post/2024-06-05/adds01/014.png)
 
 15. 「配置構成」で「新しいフォレストの追加」を選択し、「ルートドメイン名」を入力し、「次へ」をクリックする  
-ここでは`r74tech.local`を入力している。今回はEntra ADとのハイブリッド環境を構築するため、TLDは`.local`を使用し、最終的に代替UPNを設定する予定である。
+ここでは`r74tech.local`を入力している。今回はEntra ADとのハイブリッド環境を構築するため、TLDは`.local`を使用し、最終的に代替UPNサフィックス設定する予定である。
 ![image](/assets/img/post/2024-06-05/adds01/015.png)
 
 16. 「ドメインコントローラーオプション」で「ディレクトリサービスの復元パスワード」を入力し、「次へ」をクリックする

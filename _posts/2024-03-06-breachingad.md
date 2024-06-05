@@ -4,7 +4,7 @@ author: r74tech
 categories:
   - tryhackme
 tags:
-  - ad
+  - Active Directory
   - thm
   - wip
 math: false
