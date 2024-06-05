@@ -2,10 +2,10 @@
 title: '[wip] Breaching Active Directory'
 author: r74tech
 categories:
-  - tryhackme
+  - wip
 tags:
   - Active Directory
-  - thm
+  - tryhackme
   - wip
 math: false
 mermaid: false

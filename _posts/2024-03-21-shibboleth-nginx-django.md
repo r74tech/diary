@@ -2,7 +2,7 @@
 title: NginxとDjangoでShibboleth認証を実装する
 author: r74tech
 categories:
-  - web
+  - wip
 tags:
   - django
   - shibboleth
