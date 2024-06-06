@@ -5,7 +5,6 @@ categories:
   - web
 tags:
   - front
-  - js
 math: false
 mermaid: false
 slug: 2024-02-29-generate-og
