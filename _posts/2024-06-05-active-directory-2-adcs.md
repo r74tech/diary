@@ -1,5 +1,5 @@
 ---
-title: Active Directoryの構築 2 (ADCS編)
+title: '[wip] Active Directoryの構築 2 (ADCS編)'
 author: r74tech
 categories:
   - wip

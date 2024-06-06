@@ -1,5 +1,5 @@
 ---
-title: Active Directoryの構築 1 (ADDS編)
+title: '[wip] Active Directoryの構築 1 (ADDS編)'
 author: r74tech
 categories:
   - wip
@@ -61,7 +61,7 @@ Ethernet0                 Intel(R) 82574L Gigabit Network Conn...       4 Up    
 6. ポップアップが表示されるので「機能の追加」をクリックする
 ![image](/assets/img/post/2024-06-05/adds01/006.png)
 
-1. このタイミングで「DNSサーバー」もインストールする
+7. このタイミングで「DNSサーバー」もインストールする
 ![image](/assets/img/post/2024-06-05/adds01/007.png)
 
 8. 同じようにポップアップが表示されるので「機能の追加」をクリックする
@@ -88,18 +88,18 @@ Ethernet0                 Intel(R) 82574L Gigabit Network Conn...       4 Up    
 1. サーバーマネージャーの「通知」に展開後構成タスクが表示されるので、「このサーバーをドメイン コントローラーに昇格する」をクリックする
 ![image](/assets/img/post/2024-06-05/adds02/014.png)
 
-15. 「配置構成」で「新しいフォレストの追加」を選択し、「ルートドメイン名」を入力し、「次へ」をクリックする  
+2. 「配置構成」で「新しいフォレストの追加」を選択し、「ルートドメイン名」を入力し、「次へ」をクリックする  
 ここでは`r74tech.local`を入力している。今回はEntra ADとのハイブリッド環境を構築するため、TLDは`.local`を使用し、最終的に代替UPNサフィックス設定する予定である。
 ![image](/assets/img/post/2024-06-05/adds02/015.png)
 
-16. 「ドメインコントローラーオプション」で「ディレクトリサービスの復元パスワード」を入力し、「次へ」をクリックする
+3. 「ドメインコントローラーオプション」で「ディレクトリサービスの復元パスワード」を入力し、「次へ」をクリックする
   * フォレストの機能レベル: Windows Server 201. 
     今回はWindows10, Windows Server 2019の環境を構築するため、Windows Server 2016のままで問題ない
   * ディレクトリサービスの復元パスワード: 復元パスワードを入力する  
     復元パスワードはドメインコントローラーの復元時に使用するため、忘れないように注意する
 ![image](/assets/img/post/2024-06-05/adds02/016.png)
 
-17.  DNS委任を行わない場合は「次へ」をクリックする
+4.  DNS委任を行わない場合は「次へ」をクリックする
 ![image](/assets/img/post/2024-06-05/adds02/017.png)
 
 18.  「追加のオプション」で「次へ」をクリックする  
@@ -147,3 +147,46 @@ Ethernet0                 Intel(R) 82574L Gigabit Network Conn...       4 Up    
 
 1. 作成したOU配下にユーザーが作成されていることを確認する  
 ![image](/assets/img/post/2024-06-05/adds03/008.png)
+
+### 4. ドメインユーザーの参加
+1. ホスト名を`TESTUSER01`に変更する
+```powershell
+Rename-Computer -NewName "TESTUSER01"
+```  
+![image](/assets/img/post/2024-06-05/adds04/001.png)
+
+2. IPアドレスを`192.168.10.110`に変更する
+```powershell
+Get-NetIPAddress | New-NetIPAddress -AddressFamily IPv4 -IPAddress 192.168.10.110 -PrefixLength 24
+```
+![image](/assets/img/post/2024-06-05/adds04/002.png)
+
+3. DNSをADDSに向ける  
+```powershell
+Set-DnsClientServerAddress -InterfaceIndex 4 -ServerAddresses 192.168.10.100
+```
+![image](/assets/img/post/2024-06-05/adds04/005.png)
+
+4. ネットワーク設定が正常に行われていることを確認する
+![image](/assets/img/post/2024-06-05/adds04/006.png)
+
+5. `Win + R`で`sysdm.cpl`(システムのプロパティ)を開いて、`変更`をクリックし、所属ドメインを`r74tech.local`に変更する  
+![image](/assets/img/post/2024-06-05/adds04/007.png)
+
+6. 3.で作成したユーザーでログインする
+![image](/assets/img/post/2024-06-05/adds04/008.png)
+
+7. `net user`コマンドでユーザーが参加していることを確認する
+```powershell
+net user /domain
+```
+![image](/assets/img/post/2024-06-05/adds04/013.png)
+
+8. `ipconfig /all`でWindows IP構成が正常に設定されていることを確認する
+```powershell
+ipconfig /all
+```
+![image](/assets/img/post/2024-06-05/adds04/014.png)
+
+
+
