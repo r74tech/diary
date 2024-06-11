@@ -1,5 +1,5 @@
 ---
-title: '[wip] Active Directoryの構築 3 (ADFS編)'
+title: '[wip] Active Directoryの構築 3 (ADFS 前編)'
 author: r74tech
 categories:
   - wip
