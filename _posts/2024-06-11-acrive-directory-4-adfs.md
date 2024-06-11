@@ -89,7 +89,7 @@ Add-KdsRootKey -EffectiveTime ((Get-Date).addhours(-10))
 20. 「このサーバーは正常に構成されました」と表示されるので、「閉じる」をクリックする
 ![image](/assets/img/post/2024-06-11/adfs02/034.png)
 
-21. https://localhost/adfs/ls/IdpInitiatedSignOn.aspx にアクセスし、AD FSの動作確認を行う
+21. [https://localhost/adfs/ls/IdpInitiatedSignOn.aspx](https://localhost/adfs/ls/IdpInitiatedSignOn.aspx) にアクセスし、AD FSの動作確認を行う
 ![image](/assets/img/post/2024-06-11/adfs02/036.png)
 ![image](/assets/img/post/2024-06-11/adfs02/037.png)
 ![image](/assets/img/post/2024-06-11/adfs02/038.png)
