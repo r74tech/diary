@@ -241,10 +241,9 @@ async fn handle_connection(connection: Connection) -> Result<()> {
 }
 ```
 {: file='src/server.rs'}
-```
 
 ```bash
-cargo run --bin quinn-example
-cargo run --bin server
-cargo run --bin client
+$ cargo run --bin quinn-example
+$ cargo run --bin server
+$ cargo run --bin client
 ```
