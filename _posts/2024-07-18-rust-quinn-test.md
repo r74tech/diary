@@ -2,9 +2,9 @@
 title: '[wip] QuinnでQUICを試す'
 author: r74tech
 categories:
-  - wip
+  - dev
 tags:
-  - wip
+  - web rust
 math: false
 mermaid: false
 slug: 2024-07-18-rust-quinn-test
