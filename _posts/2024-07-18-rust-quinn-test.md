@@ -17,6 +17,8 @@ image:
 
 [https://github.com/r74tech/quinn-example](https://github.com/r74tech/quinn-example)
 
+`dangerous_configuration` になっていないか……?
+
 ```
 .
 ├── Cargo.toml
