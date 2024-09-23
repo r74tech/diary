@@ -4,13 +4,15 @@ author: r74tech
 categories:
   - dev
 tags:
-  - web rust
+  - web
+  - rust
 math: false
 mermaid: false
 slug: 2024-07-18-rust-quinn-test
 image:
   path: /assets/img/og/2024-07-18-rust-quinn-test.png
   show: false
+discription: 'Quinnを用いて、QUIC上で簡単なメッセージの送受信を行う'
 ---
 
 参考記事: [https://tech.aptpod.co.jp/entry/2020/12/04/100000](https://tech.aptpod.co.jp/entry/2020/12/04/100000)
