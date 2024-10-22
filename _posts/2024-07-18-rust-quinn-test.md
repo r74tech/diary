@@ -1,5 +1,5 @@
 ---
-title: '[wip] QuinnでQUICを試す'
+title: 'QuinnでQUICを試す'
 author: r74tech
 categories:
   - dev
@@ -19,7 +19,6 @@ discription: 'Quinnを用いて、QUIC上で簡単なメッセージの送受信
 
 [https://github.com/r74tech/quinn-example](https://github.com/r74tech/quinn-example)
 
-`dangerous_configuration` になっていないか……?
 
 ```
 .
