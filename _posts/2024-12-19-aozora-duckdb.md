@@ -17,10 +17,12 @@ image:
 
 [脆弱エンジニアの Advent Calendar 2024](https://qiita.com/advent-calendar/2024/full-weak-engineer) 19日目の記事です。
 
-
 ## 謝辞
 
 本プロジェクトは[@voluntas](https://github.com/voluntas)さんの[duckdb-wasm-parquet](https://github.com/voluntas/duckdb-wasm-parquet)を参考にさせていただきました。この場を借りて感謝申し上げます。
+
+## TL;DR
+[青空文庫データ分析ツール](https://r74tech.github.io/aozora-duckdb/)を作成しました。DuckDBとCodeMirrorを使って、青空文庫のデータをブラウザ上で検索・分析できるようにしました。
 
 ## はじめに
 
