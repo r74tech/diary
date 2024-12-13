@@ -19,6 +19,16 @@ image:
 
 本プロジェクトは[@voluntas](https://github.com/voluntas)さんの[duckdb-wasm-parquet](https://github.com/voluntas/duckdb-wasm-parquet)を参考にさせていただきました。この場を借りて感謝申し上げます。
 
+<details>
+<summary>ライセンス情報 (クリックで展開)</summary>
+
+This product includes software developed by <a href="https://github.com/voluntas">@voluntas</a> (<a href="https://github.com/voluntas/duckdb-wasm-parquet">duckdb-wasm-parquet</a>).  
+Licensed under the Apache License, Version 2.0.
+
+</details>
+
+
+
 ## TL;DR
 [青空文庫データ分析ツール](https://r74tech.github.io/aozora-duckdb/)を作成しました。DuckDBとCodeMirrorを使って、青空文庫のデータをブラウザ上で検索・分析できるようにしました。
 
