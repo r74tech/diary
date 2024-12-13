@@ -347,7 +347,7 @@ document.getElementById('author-stats')?.addEventListener('click', async () => {
 })
 ```
 
-## まとめと今後の展望
+## まとめ
 
 本プロジェクトでは、DuckDBとCodeMirrorを組み合わせることで、以下を実現しました。
 
@@ -355,6 +355,8 @@ document.getElementById('author-stats')?.addEventListener('click', async () => {
 - インタラクティブなSQLクエリ実行環境
 - サーバーレスでの大規模テキストデータ分析
 
+## コード
+[aozora-duckdb](https://github.com/r74tech/aozora-duckdb)にて、本プロジェクトのソースコードを公開しています。
 
 ## ライセンス
 
