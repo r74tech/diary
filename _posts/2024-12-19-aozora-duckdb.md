@@ -13,8 +13,6 @@ image:
   show: false
 ---
 
-# DuckDBとCodeMirrorを使って青空文庫のデータを検索する
-
 [脆弱エンジニアの Advent Calendar 2024](https://qiita.com/advent-calendar/2024/full-weak-engineer) 19日目の記事です。
 
 ## 謝辞
@@ -41,6 +39,8 @@ image:
      ベクトル化実行エンジンは、データをチャンク単位で処理し、CPUキャッシュの効率を最大化します[^2]。
    - OLAP（Online Analytical Processing）ワークロードに最適化  
      OLAP向けのクエリ処理は、大量のデータの集計や分析を短時間で行うことを目指しています。
+   - SQLインジェクション対策の実装  
+     パラメータ化されたクエリの採用により、SQLインジェクションのリスクを最小限に抑えた設計となっています[^x]。
 
 2. **トランザクションサポート**
    - ACID準拠のトランザクション  
@@ -359,3 +359,4 @@ document.getElementById('author-stats')?.addEventListener('click', async () => {
 [^5]: DuckDB WASM: [Running in the Browser](https://duckdb.org/docs/api/wasm/overview/)
 [^6]: File System Access API: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/API/File_System_Access_API)
 [^7]: OPFS Support: [OPFS API Overview](https://web.dev/file-system-access/)
+[^x]: [非脆弱](https://www.youtube.com/@full-weak-engineer)
