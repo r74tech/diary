@@ -15,7 +15,6 @@ permissions:
 
 jobs:
   continuous-delivery:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -35,8 +34,13 @@ jobs:
         with:
           node-version: '18'
 
+      - name: Enable Corepack
+        run: corepack enable
+
       - name: Install dependencies
-        run: yarn install
+        run: |
+          corepack prepare pnpm@9.15.0 --activate
+          pnpm install
 
       - name: Deploy
         env:
