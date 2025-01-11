@@ -15,4 +15,4 @@
 *.jpg binary
 *.ico binary
 
-linguist-vendored
+* linguist-vendored
